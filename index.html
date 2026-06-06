@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Wedding Invitation</title>
+    <meta name="description" content="You are warmly invited to celebrate our wedding." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Wedding Invitation" />
+    <meta property="og:description" content="You are warmly invited to celebrate our wedding." />
+    <meta property="og:image" content="assets/og-cover.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#17110b" />
+    <link rel="preload" as="image" href="assets/generated-front-cover.png" />
+    <link rel="preload" as="image" href="assets/first-page-image.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Allura&family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="particles" id="particles" aria-hidden="true"></div>
+
+    <div class="cover" id="cover" aria-label="Opening invitation cover">
+      <button class="cover__stage" id="openInvite" type="button" aria-label="Tap to reveal invitation">
+        <img class="cover__art" src="assets/generated-front-cover.png" alt="Oshine and Joshi wedding invitation envelope cover" />
+        <span class="cover__hint">Tap to reveal</span>
+      </button>
+    </div>
+
+    <audio id="bgMusic" preload="none" loop></audio>
+
+    <main id="mainContent" class="site-shell" aria-live="polite">
+      <button class="music-toggle" id="musicToggle" type="button" aria-label="Toggle music">
+        <span></span>
+      </button>
+
+      <section class="hero section-reveal">
+        <div class="hero__media">
+          <img src="assets/first-page-image.jpg" alt="Oshine and Joshi embracing" />
+        </div>
+        <div class="hero__text">
+          <h2 data-field="coupleName">[Bride Name] &amp; [Groom Name]</h2>
+          <p class="hero__forever">The beginning of our forever.</p>
+        </div>
+      </section>
+
+      <section class="message scripture section-reveal">
+        <div class="scripture__text">
+          <p class="script">
+            May the grace of our Lord Jesus Christ, the love of God, and the fellowship of the Holy Spirit be with us as we begin this sacred journey together.
+          </p>
+          <p>2 Corinthians 13:14</p>
+        </div>
+      </section>
+
+      <section class="wedding-invite section-reveal">
+        <div class="wedding-invite__text">
+          <p class="wedding-invite__blessing">With the Grace of God</p>
+          <p class="wedding-invite__families">Together with our families</p>
+          <div class="wedding-invite__couple">
+            <div>
+              <h2>Joshi</h2>
+              <p>Son of</p>
+              <p>John Abraham &amp; Shiji John</p>
+            </div>
+            <span aria-hidden="true">&amp;</span>
+            <div>
+              <h2>Oshine</h2>
+              <p>Daughter of</p>
+              <p>Jose M. John &amp; Thanuja Jose</p>
+            </div>
+          </div>
+          <p class="wedding-invite__body">
+            we joyfully invite you to witness and celebrate our Holy Matrimony
+          </p>
+          <p class="wedding-invite__closing">
+            as we begin a lifetime of love, faith, and companionship.
+          </p>
+        </div>
+      </section>
+
+      <section class="story section-reveal">
+        <article>
+          <img src="assets/photos/shore-embrace.jpg" alt="Couple embracing by the shoreline" loading="lazy" />
+          <div>
+            <p class="eyebrow">Our Moment</p>
+            <h2>Two hearts. One promise. Endless grace.</h2>
+          </div>
+        </article>
+        <article>
+          <img src="assets/photos/arch-close.jpg" alt="Couple standing beneath a historic arch" loading="lazy" />
+          <div>
+            <p class="eyebrow">Our Promise</p>
+            <h2>Held gently, chosen completely</h2>
+          </div>
+        </article>
+      </section>
+
+      <section class="gallery section-reveal" aria-label="Photo gallery">
+        <p class="eyebrow">Gallery</p>
+        <h2>Scenes from our story</h2>
+        <div class="gallery-grid" id="gallery"></div>
+      </section>
+
+      <section class="venue section-reveal">
+        <div>
+          <p class="eyebrow">Venue</p>
+          <h2 data-field="venueName">[Venue Name]</h2>
+          <p data-field="venueNote">We would be honored to celebrate this day with you.</p>
+          <a class="map-button shine" id="mapButton" href="#" target="_blank" rel="noreferrer">Open Map</a>
+        </div>
+        <img src="assets/venue-church.png" alt="St John's Ephesus Orthodox Syrian Church, Pampakuda, Kerala, India" loading="lazy" />
+      </section>
+
+      <section class="reveal-date section-reveal" id="dateReveal">
+        <p class="eyebrow">Save The Date</p>
+        <h2>Reveal our day</h2>
+        <div class="reveal-grid">
+          <div class="reveal-card">
+            <div class="date-secret">
+              <p>Year</p>
+              <h3>2026</h3>
+            </div>
+            <canvas class="scratch-canvas" data-scratch-label="Year" aria-label="Scratch to reveal the year"></canvas>
+            <p class="scratch-hint">Scratch</p>
+          </div>
+          <div class="reveal-card">
+            <div class="date-secret">
+              <p>Month</p>
+              <h3>July</h3>
+            </div>
+            <canvas class="scratch-canvas" data-scratch-label="Month" aria-label="Scratch to reveal the month"></canvas>
+            <p class="scratch-hint">Scratch</p>
+          </div>
+          <div class="reveal-card">
+            <div class="date-secret">
+              <p>Date</p>
+              <h3>5</h3>
+            </div>
+            <canvas class="scratch-canvas" data-scratch-label="Date" aria-label="Scratch to reveal the date"></canvas>
+            <p class="scratch-hint">Scratch</p>
+          </div>
+        </div>
+        <p class="date-time"><span data-field="displayTime">[Wedding Time]</span></p>
+      </section>
+
+      <section class="countdown section-reveal" aria-label="Wedding countdown">
+        <p class="eyebrow">Counting every heartbeat</p>
+        <div class="countdown-grid" id="countdown">
+          <div><strong>00</strong><span>Days</span></div>
+          <div><strong>00</strong><span>Hours</span></div>
+          <div><strong>00</strong><span>Minutes</span></div>
+          <div><strong>00</strong><span>Seconds</span></div>
+        </div>
+      </section>
+    </main>
+
+    <div class="petals" id="petals" aria-hidden="true"></div>
+    <script src="script.js"></script>
+  </body>
+</html>
