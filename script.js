@@ -111,6 +111,10 @@ scrollCue.addEventListener("click", () => {
   document.querySelector(".message").scrollIntoView({ behavior: "smooth", block: "start" });
 });
 
+window.addEventListener("scroll", () => {
+  body.classList.toggle("has-scrolled", window.scrollY > 80);
+}, { passive: true });
+
 // Build the gallery from editable image paths.
 const gallery = document.getElementById("gallery");
 invitation.gallery.forEach((src, index) => {

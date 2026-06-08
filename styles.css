@@ -323,31 +323,53 @@ body.invite-open .hero {
 }
 
 .scroll-cue {
-  position: absolute;
+  position: fixed;
   left: 50%;
-  bottom: calc(22px + env(safe-area-inset-bottom));
-  z-index: 2;
-  width: 46px;
-  height: 46px;
-  display: grid;
+  bottom: calc(18px + env(safe-area-inset-bottom));
+  z-index: 10;
+  min-width: 96px;
+  min-height: 48px;
+  display: inline-grid;
+  grid-template-columns: auto 16px;
+  gap: 10px;
+  align-items: center;
   place-items: center;
-  padding: 0;
+  padding: 0 16px;
   border: 1px solid rgba(255, 250, 242, 0.56);
-  border-radius: 50%;
-  background: rgba(48, 40, 32, 0.34);
+  border-radius: 999px;
+  background: rgba(48, 40, 32, 0.72);
   box-shadow:
     inset 0 0 0 1px rgba(255, 250, 242, 0.1),
     0 12px 34px rgba(0, 0, 0, 0.28),
     0 0 28px rgba(217, 178, 90, 0.22);
+  color: #fffaf2;
+  opacity: 0;
+  pointer-events: none;
   transform: translateX(-50%);
   animation: scrollCueFloat 1.75s ease-in-out infinite;
   cursor: pointer;
+  transition: opacity 240ms ease;
+}
+
+body.invite-open:not(.has-scrolled) .scroll-cue {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.scroll-cue small {
+  font-family: Arial, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1;
+  text-transform: uppercase;
 }
 
 .scroll-cue span,
 .scroll-cue span::after {
-  width: 13px;
-  height: 13px;
+  position: relative;
+  width: 10px;
+  height: 10px;
   border-right: 2px solid #fffaf2;
   border-bottom: 2px solid #d9b25a;
   transform: rotate(45deg);
@@ -356,7 +378,9 @@ body.invite-open .hero {
 .scroll-cue span::after {
   content: "";
   position: absolute;
-  margin: 9px 0 0 9px;
+  left: 7px;
+  top: 7px;
+  margin: 0;
   opacity: 0.62;
 }
 
@@ -755,9 +779,9 @@ section {
 }
 
 .venue-events p {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(106px, max-content) minmax(0, 1fr);
   align-items: center;
-  justify-content: space-between;
   gap: 14px;
   margin: 0;
   padding: 12px 14px;
@@ -780,7 +804,7 @@ section {
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.1em;
-  text-align: right;
+  text-align: left;
   text-transform: uppercase;
 }
 
@@ -1424,13 +1448,18 @@ section {
   }
 
   .venue-events p {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 2px;
+    grid-template-columns: minmax(88px, max-content) minmax(0, 1fr);
+    gap: 10px;
     text-align: left;
   }
 
+  .venue-events strong {
+    font-size: clamp(0.96rem, 4.1vw, 1.08rem);
+  }
+
   .venue-events span {
+    font-size: 0.66rem;
+    letter-spacing: 0.06em;
     text-align: left;
   }
 }
