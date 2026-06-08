@@ -322,6 +322,44 @@ body.invite-open .hero {
   text-shadow: 0 10px 28px rgba(7, 12, 22, 0.52);
 }
 
+.scroll-cue {
+  position: absolute;
+  left: 50%;
+  bottom: calc(22px + env(safe-area-inset-bottom));
+  z-index: 2;
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid rgba(255, 250, 242, 0.56);
+  border-radius: 50%;
+  background: rgba(48, 40, 32, 0.34);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 250, 242, 0.1),
+    0 12px 34px rgba(0, 0, 0, 0.28),
+    0 0 28px rgba(217, 178, 90, 0.22);
+  transform: translateX(-50%);
+  animation: scrollCueFloat 1.75s ease-in-out infinite;
+  cursor: pointer;
+}
+
+.scroll-cue span,
+.scroll-cue span::after {
+  width: 13px;
+  height: 13px;
+  border-right: 2px solid #fffaf2;
+  border-bottom: 2px solid #d9b25a;
+  transform: rotate(45deg);
+}
+
+.scroll-cue span::after {
+  content: "";
+  position: absolute;
+  margin: 9px 0 0 9px;
+  opacity: 0.62;
+}
+
 .message p,
 .venue p {
   font-family: Arial, sans-serif;
@@ -707,6 +745,43 @@ section {
   display: grid;
   gap: 4px;
   color: var(--muted);
+}
+
+.venue-events {
+  display: grid;
+  gap: 8px;
+  width: min(100%, 420px);
+  margin: 20px 0 14px;
+}
+
+.venue-events p {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin: 0;
+  padding: 12px 14px;
+  border: 1px solid rgba(155, 122, 69, 0.3);
+  border-radius: 8px;
+  background: rgba(255, 250, 242, 0.42);
+  box-shadow: inset 0 0 0 1px rgba(255, 250, 242, 0.22);
+}
+
+.venue-events strong {
+  color: #302820;
+  font-family: "Bodoni Moda", Georgia, "Times New Roman", serif;
+  font-size: clamp(1rem, 3.6vw, 1.22rem);
+  font-weight: 500;
+}
+
+.venue-events span {
+  color: #8a693b;
+  font-family: Arial, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-align: right;
+  text-transform: uppercase;
 }
 
 .map-button {
@@ -1186,6 +1261,16 @@ section {
   }
 }
 
+@keyframes scrollCueFloat {
+  0%,
+  100% {
+    transform: translate(-50%, 0);
+  }
+  50% {
+    transform: translate(-50%, 10px);
+  }
+}
+
 @keyframes petalFall {
   to {
     transform: translate3d(var(--drift, 20px), 110vh, 0) rotate(520deg);
@@ -1332,6 +1417,21 @@ section {
 
   .venue p {
     font-size: 0.94rem;
+  }
+
+  .venue-events {
+    margin-inline: auto;
+  }
+
+  .venue-events p {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 2px;
+    text-align: left;
+  }
+
+  .venue-events span {
+    text-align: left;
   }
 }
 

@@ -30,6 +30,7 @@ const openInvite = document.getElementById("openInvite");
 const music = document.getElementById("bgMusic");
 const musicToggle = document.getElementById("musicToggle");
 const mapButton = document.getElementById("mapButton");
+const scrollCue = document.getElementById("scrollCue");
 
 body.classList.add("locked");
 
@@ -104,6 +105,10 @@ musicToggle.addEventListener("click", () => {
     music.pause();
     musicToggle.classList.add("is-muted");
   }
+});
+
+scrollCue.addEventListener("click", () => {
+  document.querySelector(".message").scrollIntoView({ behavior: "smooth", block: "start" });
 });
 
 // Build the gallery from editable image paths.
